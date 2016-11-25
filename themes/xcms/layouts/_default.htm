@@ -1,0 +1,57 @@
+description = "Homepage layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>5xpert CMS - {{ this.page.title }}</title>
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="author" content="5xpert.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="5xpert CMS">
+        {% styles %}
+        <link rel="stylesheet" href="{{ [
+            'assets/css/style.css'] | theme
+        }}">
+    </head>
+    <body>
+
+        <!-- Header
+        Include: Top bar, Search, Banner, Top Menu
+       -->
+        <header>
+            {% partial 'common/header' %}
+        </header>
+        <!-- End Header -->
+
+        <!-- Slider Section -->
+        <div id="slider">
+              {% partial 'common/slider' %}
+        </div>
+        <!-- End Slider Section -->
+
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+        <!-- End Content -->
+
+        <!-- Footer -->
+        <footer>
+            {% partial 'common/footer' %}
+        </footer>
+        <!-- End Footer -->
+
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="{{[
+          'assets/js/app.js'
+        ] | theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+        <!-- End Scripts -->
+
+    </body>
+</html>
